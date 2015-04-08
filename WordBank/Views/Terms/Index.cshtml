@@ -1,0 +1,45 @@
+﻿@model IEnumerable<WordBank.Models.Term>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Glossary</h2>
+
+<p>
+    @Html.ActionLink("Create New Word", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Word)
+        
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Definition)
+         
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Word)
+           
+
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Definition)
+        
+
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.TermId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.TermId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.TermId })
+        </td>
+    </tr>
+}
+
+</table>
